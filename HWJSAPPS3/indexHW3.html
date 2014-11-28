@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JSAPPS HW3 - Countries and Towns</title>    
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" type="text/css" href="../bootstrap/3/css/bootstrap.min.css">
+    <script src="../lib/jquery-latest.pack.js"></script>
+    <script src="../bootstrap/3/js/bootstrap.min.js"></script>
+    <style>     
+        .container > .row {
+            margin-top: 20px;
+        }
+        .panel>.list-group, .panel>.panel-collapse>.list-group {
+            margin-bottom: 0;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="well">
+                    <h2>JS Apps Homework 3 - Countries and Towns </h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">            
+                <fieldset id="countries">
+                    <legend>Countries</legend>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="btn-group form-inline">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" id="country-add-btn" class="btn btn-info">Add</button>
+                                    </span>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" id="country-edit-btn" class="btn btn-warning">Edit</button>
+                                    </span>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" id="country-del-btn" class="btn btn-danger">Delete</button>
+                                    </span>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>                                
+                    <select name="countries-list" id="countries-list" class="form-control" ></select>
+                </fieldset>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">                
+                <fieldset id="towns">
+                    <legend>Towns</legend>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="btn-group form-inline">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" id="town-add-btn" class="btn btn-info">Add</button>
+                                    </span>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" id="town-edit-btn" class="btn btn-warning">Edit</button>
+                                    </span>
+                                </div>
+                                 <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" id="town-del-btn" class="btn btn-danger">Delete</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                    <select name="towns" id="towns-list" multiple="multiple" class="form-control"></select>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="countriesAndTowns.js"></script>    
+  </body>
+</html>

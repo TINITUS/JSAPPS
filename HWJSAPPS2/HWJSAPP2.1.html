@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>HW 2 - Problem 1</title>
+        <link rel="stylesheet" type="text/css" href="../bootstrap/3/css/bootstrap.min.css">
+        <script src="../lib/jquery-latest.pack.js"></script>
+        <script src="../bootstrap/3/js/bootstrap.min.js"></script>
+        <style>
+        .container > .row {
+            margin-top: 20px;
+        }
+        /* sTree css */ 
+        .sTree {
+            display: block;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            color: #555555;
+            background-color: #fdfdfd;
+        }
+
+        .sTree ul {
+            display: block;
+/*             margin: 0;
+padding: 0; */
+            list-style: none;
+            color: #555555;
+        }
+
+        /* .sTree ul li a {
+            padding: 0 0 0 15px;
+        } */
+
+        .sTree a {
+            display: block;
+            font-size: 12px;
+            color: inherit;
+        }
+
+        .sTree .node > a {
+            position: relative;
+            margin-bottom: 5px;
+            /* padding: 0 0 0 15px; */
+            text-overflow: ellipsis;
+            font-size: 12px;
+            white-space: nowrap;
+            color: #000;
+        }
+
+        .sTree .node:not(:first-child) {
+            margin-top: 0;
+        }
+
+        .sTree .node-toggle {
+            display: inline-block;
+            float: left;
+            position: absolute;
+            top:-2px;
+            left:-10px;
+            width: 10px;
+            height: 10px;
+            margin-right: 3px;
+        }
+
+        .sTree .node-toggle:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 2px;
+            width: 0;
+            height: 0;
+            border-top: 7px solid transparent;
+            border-bottom: 7px #1d1d1d solid;
+            border-left: 7px solid transparent;
+        }
+
+        .sTree .node-toggle:hover:before {
+            border-bottom-color: #0050ef;
+        }
+
+        .sTree li.collapsed .node-toggle:before {
+            margin-left: -4px;
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        .sTree li a:hover {
+            background-color: #e6f2fa;
+        }
+
+        .sTree .active {
+            font-weight: bold;
+            color: #1d1d1d;
+            background-color: #e1e1e1;
+        }
+
+        .sTree a .value {
+            color: #0067cb;
+        }
+        .sTree .colaps{
+            display: none;
+        }
+        .sTree .review{
+            display: block;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ul id="testTree" class="sTree">
+                        <li class="node">
+                            <a href="#" style="padding-left: 0px">
+                                <span class="node-toggle"></span>
+                                Item 1
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="#"> Sub Item 1.1</a>
+                                </li>
+                                <li>
+                                    <a href="#"> Sub Item 1.2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Item 2</a>
+                        </li>
+                        <li class="node">
+                            <a href="#">
+                                <span class="node-toggle"></span>
+                                Item 3
+                            </a>
+                            <ul>
+                                <li class="node">
+                                    <a href="#">
+                                        <span class="node-toggle"></span>
+                                        Sub Item 3.1
+                                    </a>
+                                    <ul>
+                                        <li class="node">
+                                        <a href="#">
+                                            <span class="node-toggle"></span>
+                                            Sub Item 3.1.1
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="#"> Sub Item 3.1.1.1</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> Sub Item 3.1.1.2</a>
+                                            </li>
+                                        </ul>
+                                </li>
+                                        <li>
+                                            <a href="#"> Sub Item 3.2.1</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"> Sub Item 3.2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Item 4</a>
+                        </li>
+                        <li>
+                            <a href="#">Item 5</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script>
+            (function ($) {
+                methods = {
+                    init:function (options) {
+                        this.each(function(){
+                            $this = $(this);
+                            $nodes = $this.find('li.node');
+                            $nodes.each(function () {
+                                var $sub = $(this);
+                                $sub.click(function(e){
+                                    var $ul = $sub.find('ul');
+                                    $ul.toggle('slow');
+                                    if($ul.outerHeight()>1){
+                                        $sub.addClass('collapsed');
+                                    }else{
+                                        $sub.removeClass('collapsed');
+                                    };
+                                    e.stopPropagation();
+                                });                                
+                            });
+                            $('.node > a').trigger('click');
+                        });
+                    }
+                }
+
+                $.fn.sTree = function() {
+                    return methods.init.apply(this);                    
+                };
+            })(jQuery);
+        </script>
+        <script>
+            jQuery(document).ready(function($) {
+                $('#testTree').sTree();
+            });
+        </script>
+    </body>
+</html>

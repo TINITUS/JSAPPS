@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HW 1 - Problem 3</title>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/3/css/bootstrap.min.css">
+    <script src="../lib/jquery-latest.pack.js"></script>
+    <script src="../bootstrap/3/js/bootstrap.min.js"></script>
+   	<style>
+   		.container > .row {
+   			margin-top: 10px;
+   		}
+   	</style>
+  </head>
+  <body>
+    <div class="container">
+    	<div class="row">
+    		<div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    			<textarea class="form-control" id="jsonText" rows="10">
+[
+	{"manufacturer":"BMW","model":"E92 320i","year":2011,"price":50000,"class":"Family"},
+	{"manufacturer":"Porsche","model":"Panamera","year":2012,"price":100000,"class":"Sport"},
+	{"manufacturer":"Peugeot","model":"305","year":1978,"price":1000,"class":"Family"}
+]
+    			</textarea>
+    			<button type="button" onclick="parseText(jQuery('#jsonText').val());" class="btn btn-info">Parse</button>
+    		</div>
+    	</div>
+    	<div class="row">
+    		<div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+    			
+    		</div>
+    	</div>
+    </div>
+    <script>
+    function parseText(str) {
+    	try{
+    		var resObj = jQuery.parseJSON(str);    		
+    		generateTable(resObj);
+    	}catch(e){    		
+    		if(e instanceof SyntaxError) {
+		         alert("There was a syntax error in your JSON string.\n" + e.message + "\nPlease check your syntax and try again.");
+		         jQuery("jsonText").focus();
+		         return;
+		    }
+
+		    alert("There was an unknown error. Perhaps the JSON string contained a deep level of nesting.");
+		    jQuery("jsonText").focus();
+		    return;
+    	}
+    }
+    
+    function generateTable (obj) {
+    	var table, tbody, theader, tr, td, th, rowB, rowH;
+    	table = jQuery('<table class="table"><thead></thead><tbody></tbody></table>');
+    	thead = table.children('thead');    	
+    	tbody = table.children('tbody');
+    	tr = '<tr></tr>';
+    	th = '<th></th>';
+    	td = '<td></td>';
+
+    	$.each(obj, function (ind, sub) {    		   	
+    		if(typeof sub === 'object'){
+    			if(ind === 0){
+    				rowH = $(tr);
+    			}
+    			rowB = $(tr);   			
+    			$.each(sub, function (key, val) {
+    				if(ind === 0){
+    					rowH.append($(th).text(key));
+    				}
+    				rowB.append($(td).text(val))
+	    		});	
+    			rowB.appendTo(tbody);
+    		}
+    	});
+    	rowH.appendTo(thead);
+    	$('#main').append(table);
+    }
+
+    </script>
+  </body>  
+</html>

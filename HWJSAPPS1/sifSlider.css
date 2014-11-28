@@ -1,0 +1,58 @@
+.sifSliderWindow{
+	position: relative;
+	width: 500px;
+	height: 280px;
+	border: 3px #f60 solid;
+}
+
+.sifSliderContainer{
+	width: 100%;
+	height: 100%;
+    position: relative;
+}
+
+.sifSliderWindow .sifSlide{
+    /*border: 1px #F90 dashed;*/
+}
+
+.sifSliderNav span{
+	width:15px;
+	height:38px;
+	position:absolute;
+	top:50%;
+	margin-top:-19px;
+	left:0px;
+	text-indent:-9000px;
+	opacity:0.7;
+	cursor:pointer;
+	z-index:100;
+}
+
+.sifSliderNav span:after{
+	content: '';
+	width: 0; 
+	height: 0; 
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	border-right: 15px solid green;
+	position: absolute;
+	left: 0px;
+}
+
+.sifSliderNav span.sifSliderNav-next{
+	background-position:top right;
+	left:auto;
+	right: 0px;
+}
+
+.sifSliderNav span.sifSliderNav-next:after{
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-left: 15px solid green;			
+	right: 0;
+}
+
+.sifSliderNav span:hover{
+	opacity:1.0;
+}

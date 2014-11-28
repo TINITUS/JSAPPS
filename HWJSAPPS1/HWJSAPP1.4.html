@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HW 1 - Problem 4</title>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="sifSlider.css">
+    <script src="../lib/jquery-latest.pack.js"></script>
+    <script src="../bootstrap/3/js/bootstrap.min.js"></script>
+   	<script type="text/javascript" src="jquery.sifSlider.js"></script>   	
+    <style>    	
+        .container > .row {
+            margin-top: 20px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    	<div class="row">
+    		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    			<div id="slider1">
+    				<div class="sifSlide">
+    					<h1>TEST1</h1>
+    				</div>
+    				<div class="sifSlide">
+    					<h1>TEST2</h1>
+    				</div>
+    				<div class="sifSlide">
+    					<h1>TEST3</h1>
+    				</div>
+    				<div class="sifSlide">
+    					<h1>TEST4</h1>
+    				</div>
+    				<div class="sifSlide">
+    					<h1>TEST5</h1>
+    				</div>
+    			</div>
+    		</div>    	
+    	</div>
+    	<div class="row">
+    		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    			<div id="test">
+    				<div class="sifSlide">
+    					<h1>TEST1</h1>
+    				</div>
+    				<div class="sifSlide">
+    					<h1>TEST2</h1>
+    				</div>
+    				<div class="sifSlide">
+    					<h1>TEST3</h1>
+    				</div>
+    				<div class="sifSlide">
+    					<h1>TEST4</h1>
+    				</div>
+    				<div class="sifSlide">
+    					<h1>TEST5</h1>
+    				</div>
+       			</div>
+    		</div>
+    	</div>
+    </div>
+    <script>    
+    jQuery(document).ready(function($) {
+    	$('#slider1').sifSlider({width:250, proportion:'normal'});
+    	$('#test').sifSlider({width: 450});	
+    });
+    </script>
+  </body>
+</html>
