@@ -17,15 +17,119 @@
 			position: fixed;			
 			width: 100%;
 		}
+		footer{
+			/* position: fixed; */
+			bottom: 0;
+			margin-top: 20px;
+			width: 100%;
+			background-color: #444;			
+		}
+		.alert{
+			width: 100%;
+			position: fixed;
+			top: 0;
+			height: 40px;
+		}
+		#questions .panel{
+			height: 289px;
+		}
 		</style>
 	</head>
 	<body>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-									
-				</div>				
+					<div class="jumbotron">
+						<div class="container">
+							<h1>Добре дошли в Куизззър!</h1>
+							<p>Куизззър е кратък тест за време - имате 5 минути да отговорите на четири въпроса. Времето започва да тече от натискането на старт бутона.</p>
+							<p>
+								<a id="start" class="btn btn-primary btn-lg">СТАРТ!</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="questions">
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<div class="panel panel-info">
+					  <div class="panel-heading">
+							<h3 class="panel-title">
+								<span class="label label-info">1.</span>
+								На територията на коя страна се намира днес град Килкис, родното място на Христо Измирлиев (Смирненски)
+							</h3>
+					  </div>
+					  <div class="panel-body">
+						<div class="list-group">
+							<a href="javascript:void(0);" class="list-group-item">Албания</a>
+							<a href="javascript:void(0);" class="list-group-item">Македония</a>
+							<a href="javascript:void(0);" class="list-group-item">Гърция</a>
+							<a href="javascript:void(0);" class="list-group-item">Турция</a>
+						</div>
+					  </div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<div class="panel panel-info">
+					  <div class="panel-heading">
+							<h3 class="panel-title">
+								<span class="label label-info">2.</span>
+								Кой е първият български спортист върнал се с два медала от една олимпиада?
+							</h3>
+					  </div>
+					  <div class="panel-body">
+						<div class="list-group">
+							<a href="javascript:void(0);" class="list-group-item">Мария Гроздева</a>
+							<a href="javascript:void(0);" class="list-group-item">Любен Любенов</a>
+							<a href="javascript:void(0);" class="list-group-item">Спас Бухалов</a>
+							<a href="javascript:void(0);" class="list-group-item">Петър Киров</a>
+						</div>							
+					  </div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<div class="panel panel-info">
+					  <div class="panel-heading">
+							<h3 class="panel-title">
+								<span class="label label-info">3.</span>
+								Каква е алкохолната съставка в коктейла "Секс на плажа"?
+							</h3>
+					  </div>
+					  <div class="panel-body">
+						<div class="list-group">
+							<a href="javascript:void(0);" class="list-group-item">Джин</a>
+							<a href="javascript:void(0);" class="list-group-item">Мартини</a>
+							<a href="javascript:void(0);" class="list-group-item">Вермут</a>
+							<a href="javascript:void(0);" class="list-group-item">Водка</a>
+						</div>							
+					  </div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<div class="panel panel-info">
+					  <div class="panel-heading">
+							<h3 class="panel-title">
+								<span class="label label-info">4.</span>
+								В коя наша планина се намира връх Добро утро?
+							</h3>
+					  </div>
+					  <div class="panel-body">
+						<div class="list-group">
+							<a href="javascript:void(0);" class="list-group-item">Пирин</a>
+							<a href="javascript:void(0);" class="list-group-item">Рила</a>
+							<a href="javascript:void(0);" class="list-group-item">Стара планина</a>
+							<a href="javascript:void(0);" class="list-group-item">Средна гора</a>
+						</div>							
+					  </div>
+					</div>
+				</div>							
+			</div>
+			<div class="row" id="finHold">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+					<button id="finish" type="button" class="btn btn-large btn-block btn-primary"><h3>Проверете отговорите си!</h3></button>
+				</div>
 			</div>
 		</div>
+		<script type="text/javascript" src="quizzzzer.js"></script>
 	</body>
 </html>
