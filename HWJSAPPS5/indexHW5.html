@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JSAPPS HW5</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script src="lib/jquery-latest.pack.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <style>
+        .container > .row {margin-top: 20px;}
+        .media {min-height: 250px;}
+        .media.jumbotron p{font-size: 16px;}
+        .initLoader{
+            width: 100px;
+            height: 60px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-top: -30px;
+            margin-left: -50px;
+            z-index: 99999;           
+        }
+        .alert{
+            width: 100%;
+            position: fixed;
+            top: 0;
+            height: 140px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="initLoader well text-center">
+        <img src="img/ajax-loader.gif"/>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="well text-center">
+                    <h1>Books
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="glyphicon glyphicon-cog"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="text-center"><button data-toggle="modal" data-target="#editAddModal" class="addBook btn btn-default">Add New Book</button></li>
+                            </ul>
+                        </div>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="main">
+                
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editAddModal" tabindex="-1" role="dialog" aria-labelledby="editAddModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="editAddModalLabel">Edit Book</h4>
+                </div>
+                <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="title" class="control-label">Title:</label>
+                        <input type="text" class="form-control" id="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="author" class="control-label">Author:</label>
+                        <input type="text" class="form-control" id="author">
+                    </div>
+                    <div class="form-group">
+                        <label for="isbn" class="control-label">isbn:</label>
+                        <input type="text" class="form-control" id="isbn">
+                    </div>
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="submitBtn btn btn-primary">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="deleteModalLabel">Delete Book</h4>
+                </div>
+                <div class="modal-body">
+                    <h4>Are you sure you like to delete this book?</h4>
+                    <p><small class="label label-danger">This action is irreversible!</small></p>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="submitBtn btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="requester.js"></script>
+    <script type="text/javascript" src="books.js"></script>
+  </body>
+</html>
